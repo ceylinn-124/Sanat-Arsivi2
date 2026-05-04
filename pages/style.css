@@ -1,0 +1,129 @@
+/* 1. Renk Teorisi ve Atmosfer */
+:root {
+    --bg-dark: #0a0e14; /* Derin lacivert tonları */
+    --accent-gold: #d4af37; /* Altın sarısı dikey çizgiler */
+    --text-white: #ffffff;
+    --glass-bg: rgba(255, 255, 255, 0.05);
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-white);
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+/* 2. Navigasyon Çubuğu */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 5%;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+/* 3. Hero Section: Asimetrik Modernizm */
+.hero {
+    display: flex;
+    min-height: 80vh;
+    padding: 0 5%;
+    align-items: center;
+}
+
+.hero-content {
+    flex: 7; /* %70 Alan */
+}
+
+.hero-content h1 {
+    font-size: 4rem;
+    max-width: 600px;
+    margin-bottom: 30px;
+}
+
+/* 4. Buton Mimarisi: Premium Mat */
+.btn-explore, .btn-login {
+    background-color: var(--accent-gold);
+    color: black;
+    border: none;
+    padding: 15px 35px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-explore:hover {
+    transform: scale(1.05); /* Hover edildiğinde hafifçe büyüme */
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+}
+
+/* 5. Sağ Taraftaki Bilgi Kartları: %30'luk Alan */
+.hero-cards {
+    flex: 3;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Cam Efekti (Glassmorphism) */
+.card.glass {
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px); /* Arka plan bulanıklığı */
+    padding: 25px;
+    border-radius: 15px;
+    border-left: 4px solid var(--accent-gold); /* Altın sarısı dikey çizgiler */
+    transition: 0.3s;
+}
+
+.card.glass:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+.hero {
+    position: relative;
+    display: flex;
+    min-height: 85vh;
+    padding: 0 5%;
+    align-items: center;
+    overflow: hidden;
+    background-color: #0a0e14; /* Derin lacivert temel */
+}
+
+.hero-bg-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 70%; /* Raporundaki asimetrik oran */
+    height: 100%;
+    /* ../assets/resim1.jpg yazarak bir üst klasöre çıkıp assets'e giriyoruz */
+    background: linear-gradient(to right, rgba(10, 14, 20, 0.2), rgba(10, 14, 20, 1)), 
+                url('../assets/resim1.jpg'); 
+    background-size: cover;
+    background-position: center;
+    z-index: 0;
+    opacity: 0.7; /* Karanlık Galeri atmosferi için */
+}
+
+/* Hero section'ın kendisi de asimetri için hazır olmalı */
+.hero {
+    position: relative;
+    display: flex;
+    min-height: 85vh;
+    padding: 0 5%;
+    align-items: center;
+    overflow: hidden;
+    background-color: #0a0e14;
+}
