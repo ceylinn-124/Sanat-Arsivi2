@@ -49,9 +49,23 @@ body {
 }
 
 .hero-content h1 {
-    font-size: 4rem;
+  font-size: 3.5rem; /* Yazıyı biraz büyüttük */
+    font-weight: 800;
+    color: #ffffff;
+    text-shadow: 2px 4px 10px rgba(0, 0, 0, 0.7); /* Yazının arkasına gölge ekledik */
+    margin-bottom: 20px;
     max-width: 600px;
-    margin-bottom: 30px;
+}
+
+.hero-section {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+                url('../assets/resim1.jpg'); /* Resminin yolu doğru olduğundan emin ol */
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 0 10%;
 }
 
 /* 4. Buton Mimarisi: Premium Mat */
@@ -126,4 +140,21 @@ body {
     align-items: center;
     overflow: hidden;
     background-color: #0a0e14;
+}
+.hero-btn {
+    padding: 12px 30px;
+    background-color: #f1c40f; /* Altın sarısı tonu */
+    color: #1a1a1a;
+    border: none;
+    border-radius: 50px; /* Yuvarlak köşeler */
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: all 0.3s ease; /* Geçiş efekti */
+    cursor: pointer;
+}
+
+.hero-btn:hover {
+    background-color: #ffffff;
+    transform: translateY(-3px); /* Üzerine gelince hafif yukarı kalkar */
+    box-shadow: 0 10px 20px rgba(241, 196, 15, 0.3);
 }
