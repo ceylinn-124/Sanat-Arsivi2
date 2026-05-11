@@ -1,67 +1,51 @@
-<!DOCTYPE html>
-<html lang="tr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SANAT ARŞİVİ | Dijital Küratör</title>
-    <link rel="stylesheet" href="style.css"> 
+<header class="hero-section">
+    <head>
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
-<nav class="navbar">
+  <nav class="navbar">
     <div class="logo">SANAT ARŞİVİ</div>
-    
     <ul class="nav-links">
-        <li><a href="#">Ana Sayfa</a></li>
-        <li><a href="#">Sanat Akımları</a></li>
-        <li><a href="#">Sanatçılar</a></li>
-        <li><a href="#">Quiz</a></li>
-        <li><a href="#">Hakkında</a></li>
+      <li><a href="#">ANA SAYFA</a></li>
+      <li><a href="#">SANAT AKIMLARI</a></li>
+      <li><a href="#">SANATÇILAR</a></li>
+       <li><a href="#">SANAT ESERLERİ GALERİSİ</a></li>
+        <li><a href="#">QUİZ </a></li>
     </ul>
-    
-    <div class="nav-auth">
-      <a href="javascript:void(0)" onclick="openModal('loginModal')" class="btn-login">GİRİŞ YAP</a>
-       <a href="javascript:void(0)" onclick="openModal('registerModal')" class="btn-register">KAYIT OL</a>
-  
-    </div>
-</nav>
-<section class="hero-master">
-    
-    <div class="hero-overlay"></div>
+    <div class="auth-buttons">
+    <a href="giris.html" class="btn-login">GİRİŞ YAP</a>
+    <a href="kayit.html" class="btn-register">KAYIT OL</a>
+</div>
+  </nav>
 
-    <div class="welcome-area">
-        <div class="welcome-content">
-            <h1 class="fade-in">Sanatın Dijital Arşivi</h1>
-            <p class="fade-in-delay">Zamanın ötesindeki eserleri ve akımları keşfedin.</p>
-            
-            <div class="big-buttons">
-                <button class="btn-primary-big">Koleksiyonu Gez</button>
-                <button class="btn-secondary-big">Hakkımızda</button>
+  <div class="hero-content">
+    <h1>SANATIN DİJİTAL ARŞİVİ</h1>
+    <p>Zamanın ötesindeki eserleri ve akımları keşfedin.</p>
+    <div class="hero-btns">
+     
+      
+    </div>
+  </div>
+</header>
+<main class="content-section">
+    <div class="art-grid">
+        <a href="ronesans.html" style="text-decoration: none; color:white;">
+        <div class="art-card">
+    <div class="beyaz-kutu ronesans-img"></div> <h3>Rönesans Dönemi</h3>
+    <p>Da Vinci ve Michelangelo'nun izinde.</p>
+</div></a>
+         <a href="izlenimcilik.html" style="text-decoration: none; color:white;">
+        <div class="art-card">
+            <div class="beyaz-kutu monet-img">
             </div>
-        </div>
+            <h3>İzlenimcilik</h3>
+            <p>Işığın ve rengin eşsiz dansı.</p>
+        </div></a>
+        <a href="modern-sanat.html" style="text-decoration: none; color:antiquewhite;">
+        <div class="art-card">
+            <div class="beyaz-kutu modern-img">
+            </div>
+            <h3>Modern Sanat</h3>
+            <p>Sınırları zorlayan çağdaş eserler.</p>
+        </div></a>
     </div>
-
-
-
-<section class="simple-quote">
-    <div class="quote-container">
-        <p>"Her sanatçı fırçasını kendi ruhuna daldırır ve kendi doğasını resimlerine aktarır."</p>
-        <span>— Henry Ward Beecher</span>
-    </div>
-</section>
-<section class="hero">
-    <div class="hero-container">""
-        <div class="hero-image-box">
-            <img src="../assets/resim1.jpg" alt="Dev Sanat Eseri">
-        </div>
-
-        <div class="hero-text-box">
-            <h1>SANAT ARŞİVİ</h1>
-            <p>Zamanın ötesindeki eserleri ve akımları keşfedin.</p>
-            <button class="hero-btn">KEŞFETMEYE BAŞLA</button>
-        </div>
-    </div>
-</section>
-</body>
-<script src="../script.js"></script>
-</body>
-</html>
+</main>

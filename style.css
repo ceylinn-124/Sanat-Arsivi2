@@ -1,640 +1,485 @@
-/* 1. KESİN SIFIRLAMA */
+/* 1. GENEL SIFIRLAMA */
 * {
-    margin: 0 !important;
-    padding: 0 !important;
-    box-sizing: border-box !important;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
 }
 
 body {
-    background-color: #0a0e14 !important;
-    color: white !important;
-    font-family: 'Segoe UI', sans-serif;
-    overflow-x: hidden;
+    background-color: #707070 !important; /* İstediğin o yumuşak fildişi tonu */
 }
 
-/* 2. NAVBAR: CSS GRID İLE 3 BÖLGEYE AYIRMA */
+/* Navbar'ı En Üstte Sabitle */
 .navbar {
-    display: grid !important;
-    grid-template-columns: 1fr auto 1fr !important; /* SOL - ORTA - SAĞ */
-    align-items: center !important;
-    padding: 20px 5% !important;
-    background-color: #000 !important;
-    position: fixed !important;
-    top: 0 !important;
+    position: absolute !important;
+    top: 0;
+    left: 0;
     width: 100% !important;
-    z-index: 10000 !important;
-}
-
-/* Logo Sola */
-.logo {
-    justify-self: start !important;
-    color: #f1c40f !important;
-    font-size: 1.5rem !important;
-    font-weight: 900 !important;
-}
-
-/* Linkler Ortaya */
-.nav-links {
     display: flex !important;
-    list-style: none !important;
-    gap: 30px !important;
-    justify-content: center !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    padding: 30px 8% !important;
+    background: #181818 !important; /* Beyaz şeridi kaldırdık */
+    z-index: 999 !important;
+}
+
+/* Menü Yazıları Beyaz ve Okunur Olsun */
+.logo{
+    color: #f7f7f7 !important; /* Yazı rengini beyaz yapar */
+    font-weight: bold;         /* Daha belirgin olması için kalınlaştırabilirsin */
+    text-transform: uppercase; /* Hepsini büyük harf yapar */
+}
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 25px;
 }
 
 .nav-links a {
-    color: white !important;
-    text-decoration: none !important;
-    font-weight: bold !important;
-}
-
-/* Butonlar Tam Sağa */
-.nav-auth {
-    justify-self: end !important;
-    display: flex !important;
-    gap: 15px !important;
-}
-
-.nav-auth a {
-    text-decoration: none !important;
-    padding: 10px 20px !important;
-    border-radius: 5px !important;
-    font-weight: bold !important;
-    font-size: 0.8rem !important;
-}
-
-.btn-login { border: 2px solid white !important; color: white !important; }
-.btn-register { background: #f1c40f !important; color: black !important; }
-
-/* 3. HERO (RESİM VE YAZI DÜZENİ) */
-.hero {
-    display: grid !important;
-    grid-template-columns: 1.2fr 0.8fr !important; /* RESİM %60 - YAZI %40 */
-    align-items: center !important;
-    height: 100vh !important;
-    padding: 0 10% !important;
-    gap: 50px !important;
-}
-
-/* Sol Taraftaki Resim */
-.hero-img-box, .hero-image-box {
-    width: 100% !important;
-}
-
-.hero-img-box img, .hero-image-box img {
-    width: 100% !important;
-    height: auto !important;
-    border-radius: 15px !important;
-    box-shadow: 0 20px 50px rgba(0,0,0,0.8) !important;
-}
-
-/* Sağ Taraftaki Yazı */
-.hero-text-box {
-    text-align: left !important; /* İstersen 'right' yapabilirsin */
-}
-
-.hero-text-box h1 {
-    font-size: 5.5rem !important; /* DEV BAŞLIK */
-    line-height: 1 !important;
-    margin-bottom: 20px !important;
-    font-weight: 900 !important;
-}
-
-.hero-btn {
-    padding: 15px 40px !important;
-    background: #f1c40f !important;
-    color: black !important;
-    border: none !important;
-    font-weight: bold !important;
-    border-radius: 5px !important;
-    cursor: pointer !important;
-}
-/* 1. RESMİ DEV BOYUT YAP VE SAĞA YAZIYI İT */
-.hero {
-    display: flex !important;
-    flex-direction: row !important; /* Yan yana durmaya zorla */
-    justify-content: space-between !important;
-    align-items: center !important;
-    padding: 100px 5% !important;
-    height: 100vh !important;
-    gap: 40px !important;
-}
-
-/* 2. RESİM KUTUSUNU GENİŞLET */
-.hero-img-box, .hero-image-box {
-    flex: 0 0 65% !important; /* Ekranın %65'ini resme ayır */
-    max-width: none !important; /* Sınırları kaldır */
-}
-
-.hero-img-box img, .hero-image-box img {
-    width: 100% !important; /* Kutunun tamamını kapla */
-    height: auto !important;
-    border-radius: 20px !important;
-    box-shadow: 0 25px 60px rgba(0,0,0,0.8) !important;
-}
-
-/* 3. YAZIYI SAĞA ÇEK VE BÜYÜT */
-.hero-text-box {
-    flex: 0 0 30% !important;
-    text-align: right !important; /* Yazıları sağa yasla */
-}
-
-.hero-text-box h1 {
-    font-size: 5rem !important; /* Başlığı dev yap */
-    line-height: 1 !important;
-    margin-bottom: 20px !important;
-}
-
-/* 4. O GEREKSİZ TIRNAK İŞARETİNİ GİZLE */
-/* Eğer o tırnak işareti bir 'before' veya 'after' ise bu kod onu siler */
-.hero-img-box::before, 
-.hero-img-box::after,
-.hero-image-box::before,
-.hero-image-box::after {
-    display: none !important;
-    content: "" !important;
-}
-/* 1. RESMİ DEV BOYUT YAP VE YAZIYI SAĞA İT */
-.hero {
-    display: flex !important;
-    flex-direction: row !important; /* Resim ve yazıyı yan yana zorla */
-    justify-content: space-between !important;
-    align-items: center !important;
-    padding: 0 5% !important; /* Kenarlardan boşluk */
-    height: 100vh !important;
-    width: 100% !important;
-}
-
-/* 2. SOL TARAF: RESMİ İŞARETLEDİĞİN GİBİ BÜYÜT */
-.hero-img-box, .hero-image-box {
-    flex: 0 0 65% !important; /* Ekranın %65'ini resme ver */
-    margin: 0 !important;
-}
-
-.hero-img-box img, .hero-image-box img {
-    width: 100% !important; /* Kutusunun tamamını kaplasın */
-    height: auto !important;
-    max-width: 1100px !important; /* Çok aşırı büyümesini engelle ama dev kalsın */
-    border-radius: 15px !important;
-}
-
-/* 3. SAĞ TARAF: YAZIYI SAĞA AL VE BÜYÜT */
-.hero-text-box {
-    flex: 0 0 30% !important;
-    text-align: right !important; /* Yazılar sağa yaslansın */
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: flex-end !important; /* Butonu da sağa yaslar */
-}
-
-.hero-text-box h1 {
-    font-size: 5.5rem !important; /* Başlık devasa olsun */
-    line-height: 1 !important;
-    margin-bottom: 20px !important;
-}
-
-/* 4. TIRNAK İŞARETİNİ VE LİSTE NOKTALARINI YOK ET */
-/* O tırnak işareti muhtemelen sahipsiz bir liste elemanı veya içerik */
-.hero::before, .hero::after, 
-.hero-img-box::before, .hero-img-box::after,
-.nav-links, ul, li {
-    content: none !important;
-    list-style: none !important;
-}
-
-/* TÜM ORTA KISMI (RESİM VE YAZI) GEÇİCİ OLARAK KALDIRIR */
-.hero {
-    display: none !important;
-}
-
-/* SAYFA ARKA PLANINI TERTEMİZ YAPAR */
-body {
-    background-color: #0a0e14 !important;
-}
-/* --- ÜST MENÜYÜ DEVASA YAPMA --- */
-
-.navbar {
-    height: 140px !important; /* Menü çubuğunu iyice derinleştirdik */
-    display: flex !important;
-    justify-content: space-between !important;
-    align-items: center !important;
-    padding: 0 6% !important;
-    background-color: #000000 !important;
-    border-bottom: 2px solid #1a1a1a !important; /* Altına ince şık bir çizgi */
-}
-
-/* 1. Logo: "SANAT ARŞİVİ" Yazısını Büyütme */
-.logo {
-    font-size: 3rem !important; /* Logoyu devasa yaptık */
-    font-weight: 950 !important;
-    letter-spacing: -1px !important; /* Harfleri biraz yaklaştırıp modern hava kattık */
-    color: #f1c40f !important;
-    text-transform: uppercase !important;
-}
-
-/* 2. Orta Linkler: Ana Sayfa, Sanat Akımları vb. */
-.nav-links {
-    display: flex !important;
-    gap: 60px !important; /* Linklerin arasını iyice açtık */
-    list-style: none !important;
-}
-
-.nav-links li a {
-    font-size: 1.6rem !important; /* Yazıları çok daha büyük yaptık */
-    font-weight: 800 !important;
-    color: #ffffff !important;
-    text-decoration: none !important;
-    text-transform: uppercase !important;
-    transition: all 0.3s ease !important;
-}
-
-/* 3. Sağdaki Butonlar: Giriş Yap ve Kayıt Ol */
-.nav-auth {
-    display: flex !important;
-    gap: 30px !important;
-}
-
-.nav-auth a {
-    padding: 18px 45px !important; /* Butonları çok daha etli ve büyük yaptık */
-    font-size: 1.2rem !important; /* Buton yazılarını büyüttük */
-    font-weight: 900 !important;
-    border-radius: 8px !important;
-    text-transform: uppercase !important;
-    text-decoration: none !important;
-}
-
-/* Giriş Yap Butonu (Beyaz Kenarlıklı) */
-.btn-login {
-    color: #ffffff !important;
-    border: 3px solid #ffffff !important;
-}
-
-/* Kayıt Ol Butonu (Sarı Dolgulu) */
-.btn-register {
-    background-color: #f1c40f !important;
-    color: #000000 !important;
-    border: 3px solid #f1c40f !important;
-}
-
-/* Hover Efekti: Fareyle üzerine gelince parlasın */
-.nav-links li a:hover {
-    color: #f1c40f !important;
-    transform: scale(1.1) !important;
-}
-/* --- MODERN GECE MAVİSİ TEMASI --- */
-body {
-    background-color: #0d1117 !important; /* Derin lacivert arka plan */
-}
-
-.navbar {
-    background-color: #161b22 !important; /* Biraz daha açık lacivert menü */
-    border-bottom: 2px solid #30363d !important;
-}
-
-.logo {
-    color: #58a6ff !important; /* Parlak mavi logo */
-}
-
-.nav-links li a {
-    color: #c9d1d9 !important; /* Gümüş rengi yazılar */
-}
-
-.btn-register {
-    background-color: #238636 !important; /* Canlı yeşil kayıt butonu */
-    border-color: #238636 !important;
-    color: white !important;
-}
-
-.btn-login {
-    border-color: #58a6ff !important;
-    color: #58a6ff !important;
-}
-/* --- YENİ PROFESYONEL KARŞILAMA ALANI --- */
-
-.welcome-section {
-    height: 80vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    background: radial-gradient(circle at center, #111 0%, #050505 100%); /* Hafif derinlik efekti */
-}
-
-.welcome-content h1 {
-    font-size: 5rem;
-    font-weight: 200; /* İnce ve şık font */
-    letter-spacing: 10px;
-    text-transform: uppercase;
-    color: #fff;
-    margin-bottom: 20px;
-}
-
-.welcome-content p {
-    font-size: 1.2rem;
-    color: rgba(255, 255, 255, 0.5);
-    max-width: 600px;
-    margin: 0 auto 40px auto;
-    line-height: 1.6;
+    color: rgb(151, 66, 66) !important;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.85rem;
     letter-spacing: 1px;
 }
 
-.welcome-buttons {
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-}
-
-.btn-primary {
-    padding: 15px 40px;
-    background: #fff;
-    color: #000;
-    border: none;
-    border-radius: 50px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.btn-secondary {
-    padding: 15px 40px;
-    background: transparent;
-    color: #fff;
-    border: 1px solid rgba(255,255,255,0.2);
-    border-radius: 50px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.btn-primary:hover { transform: scale(1.05); background: #f0f0f0; }
-.btn-secondary:hover { background: rgba(255,255,255,0.1); border-color: #fff; }
-/* --- YENİ HERO VE FLASH CARD STİLLERİ --- */
-
-/* Tüm Bölümü Kapsayan Ana Kutu */
-.hero-master {
-    position: relative;
-    width: 100%;
-    min-height: 100vh; /* Tam ekran yükseklik */
-    display: flex;
-    flex-direction: column; /* İçerikleri dikey sıraya dizer */
-    justify-content: space-between; /* Orta kısım ve kartları uçlara iter */
-    padding-top: 100px; /* Navbar'ın altında kalmaması için */
-    
-    /* İŞARETLEDİĞİN ARKA PLAN RESMİ */
-    background-image: url('https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5') !important;
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed; /* Parallaks efekti (Premium his verir) */
-}
-
-/* Resmi Karartan Katman (Yazıların okunması için şart) */
-.hero-overlay {
-    position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(0, 0, 0, 0.7); /* %70 siyahlık */
-    z-index: 1;
-}
-
-/* 1. ORTA KARŞILAMA ALANI */
-.welcome-area {
-    flex: 1; /* Kalan dikey alanı doldurur */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 2; /* Overlay'in üstünde dursun */
+/* Orta Başlık Alanı */
+.hero-content {
     text-align: center;
-    color: white;
+    color:rgb(255, 255, 255);
+    z-index: 10;
 }
 
-.welcome-content h1 {
-    font-size: 5rem;
-    font-weight: 200; /* İnce, modern font */
-    letter-spacing: 15px;
-    text-transform: uppercase;
-    margin-bottom: 20px;
-    text-shadow: 0 5px 15px rgba(0,0,0,0.5);
-}
-
-.welcome-content p {
-    font-size: 1.3rem;
-    color: rgba(255,255,255,0.7);
-    margin-bottom: 50px;
-    letter-spacing: 2px;
-}
-
-/* İŞARETLEDİĞİN BÜYÜK BUTONLARIN KUTUSU */
-.big-buttons {
-    display: flex;
-    gap: 30px;
-    justify-content: center;
-}
-
-/* BÜYÜK BUTONLARIN ORTAK STİLİ */
-.btn-primary-big, .btn-secondary-big {
-    padding: 20px 60px; /* İyice büyüttük */
-    font-size: 1.3rem; /* Yazıyı büyüttük */
+.hero-content h1 {
+    font-size: 4rem !important;
     font-weight: 800;
-    text-transform: uppercase;
-    border-radius: 50px;
-    cursor: pointer;
-    transition: all 0.3s ease;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.932); /* Okunurluk için hafif gölge */
+}
+
+/* Hero Section Arka Planı (Doğru Resim Adı ile) */
+.hero-section {
+    position: relative;
+    height: 95vh !important;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 50%, rgb(0, 0, 0) 100%), 
+                url('resimler/arkaplan.jpg') !important; /* Senin klasöründeki isim bu! */
+    background-size: cover !important;
+    
+    /* BURASI ÇOK ÖNEMLİ: İlk değer yatay (center), ikinci değer dikey (top/bottom/%).
+       Burayı %30 veya %40 yaparak resmi aşağı doğru kaydırabilirsin. */
+    background-position: center 0.1% !important; 
+    
+    background-repeat: no-repeat !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+}
+.hero-section h1 {
+    font-size: 3.5rem;
+    margin-bottom: 15px;
     letter-spacing: 2px;
 }
 
-/* Birinci Buton (Beyaz) */
-.btn-primary-big {
-    background: #ffffff;
-    color: #000000;
-    border: none;
-    box-shadow: 0 10px 30px rgba(255,255,255,0.2);
+/* 4. KARTLARIN OLDUĞU ALT ALAN */
+.content-section {
+    padding: 70px 10% !important;
 }
 
-/* İkinci Buton (Şeffaf) */
-.btn-secondary-big {
-    background: transparent;
-    color: #ffffff;
-    border: 2px solid #ffffff;
+/* Bu kod kartları zorla yukarı çeker */
+main.content-section {
+    position: relative !important;
+    z-index: 10 !important;
+    margin-top: -180px !important; /* Değeri bilerek çok büyüttüm, farkı görelim diye */
 }
 
-/* Hover Efektleri */
-.btn-primary-big:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 40px rgba(255,255,255,0.4);
+.art-grid {
+ display: flex !important;
+    /* Kartları iki uç yana yaslar, ortadaki boşluğu maksimuma çıkarır */
+    justify-content: space-between !important; 
+    
+    /* Yanlardaki boşluğu senin çizimine göre iyice açıyoruz */
+    padding: 0 5% !important; 
+    
+    /* Kartları yukarı, fotoğrafın üzerine bindirmeye devam ediyoruz */
+    margin-top: -150px !important; 
+    
+    /* Ekranın neredeyse tamamını kullanması için genişliği %100 yapalım */
+    width: 95% !important; 
+    max-width: 1600px !important; /* Çok devasa ekranlarda aşırı dağılmasın diye bir sınır */
+    
+    margin-left: auto !important;
+    margin-right: auto !important;
+    position: relative !important;
+    z-index: 100 !important;
 }
 
-.btn-secondary-big:hover {
-    background: rgba(255,255,255,0.1);
-    border-color: rgba(255,255,255,0.5);
+.art-card {
+/* Kartların genişliğini biraz artırarak boşluğu dengeleyebiliriz */
+    width: 380px !important; 
+    background: #49a7ff7c !important;
+    border-radius: 25px !important;
+    padding: 35px !important;
+    box-shadow: 0 25px 50px rgb(0, 0, 0) !important;
+
 }
 
-
-/* 2. ALTTAKI FLASH CARDLAR */
-.flash-cards-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 eşit sütun */
-    gap: 30px;
-    padding: 50px 8%;
-    z-index: 2;
-    background: linear-gradient(to top, rgba(0,0,0,0.9), transparent); /* Kartların arkasına gölge */
+.art-card:hover {
+    transform: translateY(-10px) !important;
+}
+.art-card h3 {
+    color: rgb(231, 99, 99);
+    margin-top: 15px; /* Resimle yazı arasına biraz boşluk iyi gider */
 }
 
-.flash-card {
-    background: rgba(255, 255, 255, 0.05); /* Yarı şeffaf cam efekti */
-    backdrop-filter: blur(10px); /* Premium blurlama */
-    padding: 40px;
-    border-radius: 15px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    text-align: center;
-    color: white;
-    transition: all 0.4s ease;
+.art-card p {
+    color: #ddd; /* Alt metni hafif gri yaparak hiyerarşi kurabilirsin */
 }
 
-.flash-card:hover {
-    background: rgba(255, 255, 255, 0.1);
-    transform: translateY(-10px); /* Hoverda yukarı zıplama */
-    border-color: rgba(255, 255, 255, 0.3);
-}
-
-.card-icon {
-    font-size: 3rem;
-    margin-bottom: 20px;
-}
-
-.flash-card h3 {
-    font-size: 1.5rem;
-    margin-bottom: 15px;
-    font-weight: 700;
-}
-
-.flash-card p {
-    font-size: 1rem;
-    color: rgba(255,255,255,0.7);
-    line-height: 1.6;
-}
-/* --- NAVBAR'I ARKA PLANA UYUMLU YAPMA (GLASSMORPHISM) --- */
-
-.navbar {
-    background-color: rgba(0, 0, 0, 0.3) !important; /* Çok hafif, transparan siyah */
-    backdrop-filter: blur(15px) !important; /* Arkadaki çiçekleri bulanıklaştıran premium efekt */
-    -webkit-backdrop-filter: blur(15px); /* Safari desteği için */
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important; /* Çok ince zarif bir cam çizgisi */
-    height: 100px !important;
-}
-
-/* Logo Rengi */
-.logo {
-    color: #ffffff !important;
-    text-shadow: 0 0 15px rgba(255, 255, 255, 0.3); /* Hafif parlama efekti */
-}
-
-/* Menü Linkleri */
-.nav-links li a {
-    color: rgba(255, 255, 255, 0.8) !important;
-    font-weight: 500 !important;
-}
-
-.nav-links li a:hover {
-    color: #ffffff !important;
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
-}
-
-/* Sağdaki Butonları Arka Plana Göre Yumuşatma */
-.btn-login {
-    border: 1px solid rgba(255, 255, 255, 0.4) !important;
-    background: transparent !important;
-    color: white !important;
-}
-
-.btn-register {
-    background-color: rgba(255, 255, 255, 0.9) !important; /* Saf beyaz yerine hafif transparan */
-    color: #000 !important;
-    border: none !important;
-}
-
-.btn-register:hover {
-    background-color: #ffffff !important;
-    transform: translateY(-2px);
-}
-.simple-quote {
-    padding: 120px 10% !important;
-    background-color: #050505 !important; /* Arka planla aynı renk olsun */
-    text-align: center !important;
-}
-
-.quote-container p {
-    color: #ffffff !important;
-    font-size: 2.2rem !important;
-    font-weight: 300 !important;
-    font-style: italic !important;
-    line-height: 1.6 !important;
-    letter-spacing: 1px !important;
+.card-image {
+    height: 300px !important;
+    background: #00000000 !important;
+    border-radius: 12px !important;
     margin-bottom: 20px !important;
 }
 
-.quote-container span {
-    color: rgba(255, 255, 255, 0.4) !important;
-    font-size: 1rem !important;
-    text-transform: uppercase !important;
-    letter-spacing: 3px !important;
+/* 1. Kapsayıcıyı yukarı itelim */
+.content-section {
+    padding-top: 0 !important; /* Üst boşluğu tamamen sıfırladık */
+    background-color: #181818 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
 }
-/* 1. SÖZÜ VE YAZARI TAMAMEN GİZLER */
-.simple-quote {
-    display: none !important;
+/* Ortak özellikler: Resmin kutuyu bozmasını engeller */
+.beyaz-kutu {
+    width: 100%;
+    height: 180px; /* Mevcut yüksekliğin neyse o kalsın */
+    background-size: cover; /* Resmi kutuya tam sığdırır */
+    background-position: center; /* Resmi ortalar */
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Resme hafif bir derinlik katar */
+    transition: transform 0.3s ease; /* Fareyle üzerine gelince efekt için */
 }
-
-/* 2. SAYFANIN EN ALTINA HAFİF VE ŞIK BİR BOŞLUK EKLER */
-.hero-master {
-    margin-bottom: 0 !important;
-    border-bottom: 80px solid #050505 !important; /* Sayfa sonunda 80px temiz boşluk */
-}
-/* MODAL (PENCERE) STİLLERİ */
-.modal {
-    display: none; 
-    position: fixed; 
-    z-index: 1000; 
-    left: 0; top: 0; width: 100%; height: 100%; 
-    background-color: rgba(0,0,0,0.8); 
-    backdrop-filter: blur(10px);
+.art-card:hover .beyaz-kutu {
+    transform: scale(1.05); /* Fareyle kartın üzerine gelince resim hafifçe büyür */
 }
 
-.modal-content {
-    background-color: #111;
-    margin: 10% auto;
-    padding: 40px;
-    border: 1px solid rgba(255,255,255,0.1);
-    width: 400px;
-    border-radius: 20px;
+/* Her kutuya ayrı resim */
+.ronesans-img {
+    background-image: url('resimler/ronesans.jpg'); 
+}
+
+.monet-img {
+    background-image: url('resimler/monet.jpg');
+}
+
+.modern-img {
+    background-image: url('resimler/modern.jpg');
+}
+.art-card {
+    cursor: pointer; /* Fare üzerine gelince el işareti çıkar */
+    transition: transform 0.3s ease;
+}
+
+.art-card:hover {
+    transform: translateY(-10px); /* Üzerine gelince hafifçe yukarı zıplar */
+}
+/* Detay Sayfası Tasarımı */
+.detay-sayfasi {
+    background-color: #1a1a1a; /* Koyu, asil bir arka plan */
     color: white;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.detay-container {
+    max-width: 1100px;
+    margin: 50px auto;
+    padding: 20px;
+}
+
+.detay-baslik {
+    text-align: center;
+    border-bottom: 2px solid #000000;
+    padding-bottom: 20px;
+    margin-bottom: 40px;
+}
+
+.detay-icerik {
+    display: flex; /* Yazı ve resmi yan yana getirir */
+    gap: 40px;
+    align-items: start;
+}
+
+.detay-resim img {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.detay-metin h2 { color: #e74c3c; }
+
+.sanatci-liste li {
+    margin-bottom: 15px;
+    list-style-type: square;
+}
+/* Butonların kapsayıcısı */
+.auth-buttons {
+    display: flex;
+    gap: 15px; /* Butonların arasını açar */
+    align-items: center;
+}
+
+/* Genel Buton Ayarları */
+.btn-login, .btn-register {
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease; /* Yumuşak geçiş efekti */
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* Giriş Yap Butonu (Sade ve Çizgili) */
+.btn-login {
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    background: transparent;
+}
+
+.btn-login:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: white;
+}
+
+/* Kayıt Ol Butonu (Vurgulu ve Renkli) */
+.btn-register {
+    background-color: #ff4d4d; /* Sitedeki kırmızı vurguyla uyumlu */
+    color: white;
+    border: 1px solid #ff4d4d;
+}
+
+.btn-register:hover {
+    background-color: #e60000;
+    transform: translateY(-2px); /* Üzerine gelince hafifçe yukarı zıplar */
+    box-shadow: 0 4px 15px rgba(255, 77, 77, 0.4);
+}
+/* Arka Planı Karart ve Formu Ortala */
+.auth-container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url('../resimler/arka-plan.jpg') no-repeat center center/cover;
+}
+
+/* Şeffaf Form Kutusu */
+.auth-form {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px); /* Arkayı bulanıklaştırır */
+    padding: 40px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    width: 350px;
     text-align: center;
 }
 
-.modal-content input {
+.auth-form h2 { color: white; margin-bottom: 25px; }
+
+/* Giriş Alanları */
+.input-group input {
     width: 100%;
-    padding: 15px;
-    margin: 10px 0;
-    background: #222;
-    border: 1px solid #333;
+    padding: 12px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    border: none;
+    background: rgba(255, 255, 255, 0.2);
     color: white;
-    border-radius: 10px;
+    outline: none;
 }
 
-.close {
-    float: right;
-    font-size: 28px;
+.input-group input::placeholder { color: #ddd; }
+
+/* Gönder Butonu */
+.auth-submit {
+    width: 100%;
+    padding: 12px;
+    background: #ff4d4d;
+    border: none;
+    color: white;
+    font-weight: bold;
+    border-radius: 8px;
     cursor: pointer;
-    color: #666;
+    transition: 0.3s;
+}
+.auth-submit:hover { background: #e60000; }
+/* Arka planı biraz daha canlandıralım */
+.auth-body {
+    background: radial-gradient(circle at center, #1e293b 0%, #020617 100%) !important;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
 }
 
-.close:hover { color: white; }
-.nav-auth {
-    position: relative;
-    z-index: 999; /* Navbar'ın en üstte kalmasını sağlar */
+/* Kartı Büyütüyoruz ve Daha Şık Yapıyoruz */
+.auth-card {
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(25px); /* Daha yoğun cam efekti */
+    padding: 70px 60px; /* İç boşluğu ciddi oranda artırdık */
+    border-radius: 40px; /* Daha yumuşak köşeler */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    width: 500px; /* Genişliği artırdık */
+    text-align: center;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
+    transition: all 0.4s ease;
 }
 
-.modal {
-    display: none; 
-    position: fixed; 
-    z-index: 9999 !important; /* Pencerelerin her şeyin önünde açılmasını sağlar */
-    left: 0; top: 0; width: 100%; height: 100%; 
-    background-color: rgba(0,0,0,0.85); 
+.auth-card:hover {
+    border-color: rgba(255, 77, 77, 0.3);
+    transform: translateY(-10px);
+}
+
+/* Başlık Tasarımı */
+/* Kayıt Sayfasına Özel Eklemeler (Eğer yoksa ekle) */
+.auth-card h2 {
+    font-size: 2.5rem;
+    font-weight: 200;
+    letter-spacing: 5px;
+    margin-bottom: 40px;
+    color: white;
+}
+
+/* Formun içindeki inputların arası çok açılmasın diye küçük bir ayar */
+.auth-card .input-box {
+    margin-bottom: 15px; 
+}
+
+/* Giriş Kutularını Modernleştiriyoruz */
+.input-box {
+    width: 100%;
+    padding: 20px; /* Daha ferah yazım alanı */
+    margin-bottom: 25px;
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.05);
+    color: white;
+    font-size: 1.1rem;
+    outline: none;
+    transition: 0.3s;
+    box-sizing: border-box;
+}
+
+.input-box:focus {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: #ff4d4d;
+    box-shadow: 0 0 20px rgba(255, 77, 77, 0.15);
+}
+
+/* Buton Tasarımı */
+.auth-btn {
+    width: 100%;
+    padding: 20px;
+    background: linear-gradient(135deg, #ff4d4d 0%, #b91c1c 100%);
+    color: white;
+    border: none;
+    border-radius: 15px;
+    font-size: 1.3rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    cursor: pointer;
+    margin-top: 25px;
+    transition: 0.3s;
+    box-shadow: 0 10px 25px rgba(255, 77, 77, 0.3);
+}
+
+.auth-btn:hover {
+    transform: scale(1.03);
+    box-shadow: 0 15px 35px rgba(255, 77, 77, 0.5);
+    filter: brightness(1.1);
+}
+
+/* Alt Link */
+.auth-footer {
+    margin-top: 40px;
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.auth-footer a {
+    color: #ff4d4d;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.auth-footer a:hover {
+    text-decoration: underline;
+    color: white;
+}
+#notification-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.toast {
+    background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
+    color: white;
+    padding: 15px 25px;
+    border-radius: 12px;
+    border-left: 5px solid #ff4d4d; /* Hata rengi */
+    margin-bottom: 10px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    display: flex;
+    align-items: center;
+    animation: slideIn 0.5s ease forwards;
 }
+
+@keyframes slideIn {
+    from { transform: translateX(100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+.toast.success { border-left-color: #4dfbaf; } /* Başarı rengi */
+/* Bildirim Konteynırını Sola Alalım */
+#notification-container {
+    position: fixed;
+    top: 20px;
+    left: 20px; /* Right yerine Left yaparak sola aldık */
+    z-index: 1000;
+}
+
+.toast {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    color: white;
+    padding: 15px 25px;
+    border-radius: 12px;
+    border-left: 5px solid #ff4d4d;
+    margin-bottom: 10px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    display: flex;
+    align-items: center;
+    /* Animasyon ismini değiştirdik */
+    animation: slideInLeft 0.5s ease forwards; 
+}
+
+/* Soldan Giriş Animasyonu */
+@keyframes slideInLeft {
+    from { 
+        transform: translateX(-100%); /* Ekranın sol dışından başla */
+        opacity: 0; 
+    }
+    to { 
+        transform: translateX(0); 
+        opacity: 1; 
+    }
+}
+
+
