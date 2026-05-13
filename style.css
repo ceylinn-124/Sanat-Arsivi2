@@ -36,12 +36,17 @@ body {
     gap: 25px;
 }
 
+/* Navbar linklerinin temel hali */
 .nav-links a {
-    color: rgb(151, 66, 66) !important;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 0.85rem;
-    letter-spacing: 1px;
+    color: white;             /* İlk başta beyaz görünsünler */
+    text-decoration: none;    /* Altındaki çizgiyi kaldırır */
+    transition: color 0.3s ease; /* Renk değişiminin yumuşak olması için (0.3 saniye) */
+}
+
+/* Üstüne gelince (Hover durumu) */
+.nav-links a:hover {
+    color: #ff4d4d;           /* Senin butonlarındaki o canlı kırmızı/turuncu tonu */
+    cursor: pointer;          /* El işareti çıksın */
 }
 
 /* Orta Başlık Alanı */
@@ -74,6 +79,7 @@ body {
     display: flex !important;
     justify-content: center !important;
     align-items: center !important;
+    padding-bottom: 200px; /* Bu, üstteki alanı şişirir ve kartları aşağı öteler */
 }
 .hero-section h1 {
     font-size: 3.5rem;
@@ -481,5 +487,212 @@ main.content-section {
         opacity: 1; 
     }
 }
+/* 1. Tüm içeriği ortalayan ana kutu */
+.center-wrapper {
+    max-width: 1100px;
+    margin: 0 auto;
+    position: relative;
+}
 
+/* 2. Kartları yan yana dizen ve yukarı taşıyan kısım */
+.art-grid {
+    display: flex !important;
+    justify-content: center !important;
+    gap: 20px;
+    margin-top: -100px !important; /* İşte kartları o kırmızı çizgiye taşıyan yer */
+    position: relative;
+    z-index: 100;
+}
 
+/* 3. Kartların boyutunu sabitleyelim (bozulmaması için) */
+.art-card {
+    flex: 0 0 300px !important; /* Kart genişliğini sabitler */
+    height: 400px;              /* Kart yüksekliğini sabitler */
+    background: rgba(30, 60, 100, 0.7); /* O mavi cam efekti */
+    border-radius: 20px;
+    padding: 15px;
+    text-align: center;
+}
+
+/* 4. Resimlerin kutuya sığması için */
+.beyaz-kutu {
+    width: 100%;
+    height: 180px;
+    border-radius: 15px;
+    margin-bottom: 15px;
+}
+.auth-card form {
+    display: flex;
+    flex-direction: column; /* Kutuları alt alta dizer */
+    gap: 15px; /* Aralarındaki boşluğu açar */
+    width: 100%;
+}
+
+.auth-card input {
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid rgba(255,255,255,0.2);
+    background: rgba(255,255,255,0.1);
+    color: white;
+    width: 100%; /* Kutuların kartı tam kaplamasını sağlar */
+}
+
+/* Rönesans Sayfa Tasarımı */
+.detay-sayfasi {
+    background-color: #0d0d0d;
+    color: #e0e0e0;
+    line-height: 1.8;
+}
+
+.ronesans-hero {
+    height: 80vh;
+    background: url('../resimler/ronesans-bg.jpg') no-repeat center center/cover;
+    background-attachment: fixed; /* Paralaks efekti */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-overlay {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 40px;
+    text-align: center;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+.hero-overlay h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 5rem;
+    color: #d4af37; /* Altın rengi */
+    letter-spacing: 10px;
+}
+
+.altin-baslik {
+    font-family: 'Playfair Display', serif;
+    color: #d4af37;
+    text-align: center;
+    font-size: 2.5rem;
+    margin: 50px 0;
+}
+
+.eser-odak {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+    margin: 80px 0;
+}
+
+.eser-resim img {
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid #333;
+}
+
+.eser-resim span {
+    display: block;
+    font-style: italic;
+    font-size: 0.9rem;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.eser-galeri {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    padding-bottom: 100px;
+}
+
+.galeri-kart {
+    background: #1a1a1a;
+    padding: 15px;
+    border-radius: 8px;
+    transition: 0.4s;
+}
+
+.galeri-kart:hover {
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+}
+
+.galeri-kart img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    margin-bottom: 15px;
+}
+/* Rönesans Detay Sayfası Tasarımı */
+.detay-sayfasi {
+    background-color: #0f172a; /* Koyu modern arka plan */
+    color: #f1f5f9;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+}
+
+.detay-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+/* Başlık Alanı */
+.detay-baslik h1 {
+    font-size: 3rem;
+    color: #e11d48; /* Vurgu rengi */
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    margin-bottom: 10px;
+}
+
+.detay-baslik p {
+    text-align: center;
+    font-style: italic;
+    color: #94a3b8;
+}
+
+/* Profesyonel Görsel Alanı */
+.detay-resim {
+    width: 100%;
+    height: 500px;
+    background: url('resimler/ronesans-hero.jpg') center/cover; /* Buraya güzel bir Rönesans resmi koy */
+    border-radius: 20px;
+    margin: 40px 0;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+}
+
+/* Metin İçeriği */
+.detay-metin {
+    background: rgba(30, 41, 59, 0.5);
+    padding: 30px;
+    border-radius: 15px;
+    border-left: 5px solid #e11d48;
+    line-height: 1.8;
+}
+
+.detay-metin h3 {
+    color: #e11d48;
+    margin-top: 25px;
+}
+
+/* Küçük Eser Galerisi */
+.eser-galeri {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.eser-galeri img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: 0.3s;
+    filter: grayscale(30%);
+}
+
+.eser-galeri img:hover {
+    filter: grayscale(0%);
+    transform: scale(1.05);
+}

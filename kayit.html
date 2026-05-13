@@ -11,17 +11,12 @@
     <div class="auth-card">
         <h2>KAYIT OL</h2>
         
-        <form>
-            <input type="text" class="input-box" placeholder="Adınız ve Soyadınız" required>
-            <input type="email" class="input-box" placeholder="E-posta Adresiniz" required>
-            <input type="text" class="input-box" placeholder="Kullanıcı Adı" required>
-            
-            <input type="password" class="input-box" placeholder="Şifre" required>
-            <input type="password" class="input-box" placeholder="Şifre Tekrar" required>
-            
-            <button type="submit" class="auth-btn">HESAP OLUŞTUR</button>
-        </form>
-
+        <form action="kayit_islem.php" method="POST">
+    <input type="text" name="kullanici_adi" placeholder="Kullanıcı Adı" required>
+    <input type="email" name="eposta" placeholder="E-posta" required>
+    <input type="password" name="sifre" placeholder="Şifre" required>
+    <button type="submit">KAYIT OL</button>
+</form>
         <div class="auth-footer">
             Zaten hesabın var mı? <a href="giris.html">Giriş Yap</a>
         </div>

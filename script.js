@@ -9,11 +9,8 @@ document.addEventListener('DOMContentLoaded', function() {
             const email = emailInput ? emailInput.value : "";
             
             if (email === "") {
-                showNotification("Lütfen e-posta adresinizi girin!", "error");
-            } else if (email.includes("admin")) {
-                showNotification("Şifreniz hatalı, lütfen tekrar deneyin.", "error");
-            } else {
-                showNotification("Böyle bir hesap bulunamadı. Lütfen kayıt olun!", "error");
+          // Şimdilik boş bırakalım ki PHP'ye veri gitsin
+            console.log("JS Kontrolü Devre Dışı");
             }
         });
     }

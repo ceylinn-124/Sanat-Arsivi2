@@ -1,9 +1,15 @@
+
+
+
 <header class="hero-section">
     <head>
+      <meta charset="UTF-8">
     <link rel="stylesheet" href="style.css">
+    
 </head>
   <nav class="navbar">
     <div class="logo">SANAT ARŞİVİ</div>
+    
     <ul class="nav-links">
       <li><a href="#">ANA SAYFA</a></li>
       <li><a href="#">SANAT AKIMLARI</a></li>
@@ -15,10 +21,26 @@
     <a href="giris.html" class="btn-login">GİRİŞ YAP</a>
     <a href="kayit.html" class="btn-register">KAYIT OL</a>
 </div>
+
+<script>
+    // URL'den kullanıcı ismini kontrol et
+    const urlParams = new URLSearchParams(window.location.search);
+    const kullaniciAdi = urlParams.get('kullanici');
+
+    if (kullaniciAdi) {
+        // Eğer isim varsa, giriş butonlarını kaldırıp ismi yazdır
+        document.getElementById('auth-area').innerHTML = `
+            <span style="color:white; margin-right:15px;">Hoş geldin, <b>${kullaniciAdi}</b></span>
+            <a href="index.html" style="color:#e11d48; text-decoration:none;">Çıkış</a>
+        `;
+    }
+</script>
+
   </nav>
 
   <div class="hero-content">
     <h1>SANATIN DİJİTAL ARŞİVİ</h1>
+    
     <p>Zamanın ötesindeki eserleri ve akımları keşfedin.</p>
     <div class="hero-btns">
      
@@ -26,7 +48,9 @@
     </div>
   </div>
 </header>
+
 <main class="content-section">
+  <div class="center-wrapper">
     <div class="art-grid">
         <a href="ronesans.html" style="text-decoration: none; color:white;">
         <div class="art-card">
@@ -47,5 +71,9 @@
             <h3>Modern Sanat</h3>
             <p>Sınırları zorlayan çağdaş eserler.</p>
         </div></a>
+        </div>
     </div>
 </main>
+
+  
+ 
